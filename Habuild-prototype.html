@@ -181,7 +181,7 @@ const IMG={welcome:'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEB
 const pic=(k,s='')=>`<img src="${IMG[k]}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;${s}">`;
 const MIL={3:['Day 3','Box Breathing unlocked'],7:['Halfway there','Pain Relief unlocked'],14:['Journey complete','Certificate ready']};
 const fresh=()=>({screen:'splash',tab:'home',onb:false,usual:450,day:5,days:['done','done','done','missed','up','up','up','up','up','up','up','up','up','up'],todayDone:false,att:{1:450,2:390,3:1020},clock:408,sunday:false,lang:'en',rem:{wa:true,app:true,eve:false,mil:true},log:[],sheet:false,batch:null,anim:false,toast:null});
-let S;try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem('habuild-proto')||'{}'));S.toast=null;S.sheet=false;S.joining=false;if(S.screen==='class'||S.screen==='complete')S.screen='home';if(S.onb)S.arcIntro=true;}catch(e){S=fresh();}
+let S=fresh();try{localStorage.removeItem('habuild-proto');}catch(e){}
 const save=()=>{try{const c=Object.assign({},S);delete c.toast;localStorage.setItem('habuild-proto',JSON.stringify(c));}catch(e){}};
 const $=id=>document.getElementById(id);
 const scr=$('screen');
